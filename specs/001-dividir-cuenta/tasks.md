@@ -234,7 +234,7 @@ Para la implementación actual: T029 → T030 → T031. Después de T006: T027/T
 
 ## Phase 7: Convergence
 
-- [ ] T043 Verificar en un navegador real la recarga, el ingreso, la selección y el cálculo sin conexión tras recibir los recursos; documentar el límite de primera apertura y, si se exige abrir por primera vez sin red, definir una entrega local compatible sin cambiar la spec, per FR-009/SC-005 (partial).
+- [X] T043 Verificar en un navegador real la recarga, el ingreso, la selección y el cálculo sin conexión tras recibir los recursos; documentar el límite de primera apertura y, si se exige abrir por primera vez sin red, definir una entrega local compatible sin cambiar la spec, per FR-009/SC-005 (partial). Evidencia: `bitacora.md` y `ENTREGA_OFFLINE.md`; prueba manual comunicada por el estudiante de la entrega local `file:///` sin conexión, con 27.50, 4.00 y recarga F5; la URL web sin caché conserva su límite documentado.
 - [X] T044 Añadir una comprobación ejecutable del empate decimal 2.345 → 2.35 en modo exacto y del formato de dos decimales, per FR-004/SC-004 (partial).
 - [X] T045 Completar comprobaciones ejecutables de propina inválida, prioridad monto → personas → propina y sustitución del resultado anterior, sin alterar los seis casos originales, per FR-006–FR-011/SC-003 (partial).
 - [X] T046 Crear la bitácora React prevista por el plan y registrar solo evidencia verificable, remitiendo a la bitácora comparativa Flutter para métricas personales pendientes, per plan: Project Structure/T033 (missing).
