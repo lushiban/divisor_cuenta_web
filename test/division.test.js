@@ -107,3 +107,35 @@ it('un cálculo válido reemplaza el resultado anterior', () => {
   act(() => result.current.calcular())
   expect(result.current.respuesta).toEqual({ pago: '3.33', modo: 'exacto' })
 })
+it('rechaza todos los bordes inválidos descritos sin calcular', () => {
+  const invalidos = [
+    [{ monto: '', personas: 2, propina: 0 }, 'Monto inválido'],
+    [{ monto: '0', personas: 2, propina: 0 }, 'Monto inválido'],
+    [{ monto: '-1', personas: 2, propina: 0 }, 'Monto inválido'],
+    [{ monto: 'abc', personas: 2, propina: 0 }, 'Monto inválido'],
+    [{ monto: '50', personas: 0, propina: 0 }, 'Debe haber al menos una persona'],
+    [{ monto: '50', personas: -1, propina: 0 }, 'Debe haber al menos una persona'],
+    [{ monto: '50', personas: '1.5', propina: 0 }, 'Debe haber al menos una persona'],
+    [{ monto: '50', personas: 'abc', propina: 0 }, 'Debe haber al menos una persona'],
+    [{ monto: '50', personas: 2, propina: -1 }, 'Propina inválida'],
+    [{ monto: '50', personas: 2, propina: 'abc' }, 'Propina inválida'],
+    [{ monto: '', personas: 0, propina: 'abc' }, 'Monto inválido'],
+  ]
+
+  for (const [entrada, mensaje] of invalidos) {
+    const calcularEspia = vi.fn(calcularDivision)
+    const { result, unmount } = renderHook(() => useDivisor({
+      validarEntrada, calcularDivision: calcularEspia,
+      estrategias, formateadorMoneda,
+    }))
+    act(() => {
+      result.current.setMonto(String(entrada.monto))
+      result.current.setPersonas(String(entrada.personas))
+      result.current.setPropina(String(entrada.propina))
+    })
+    act(() => result.current.calcular())
+    expect(result.current.respuesta).toEqual({ error: mensaje })
+    expect(calcularEspia).not.toHaveBeenCalled()
+    unmount()
+  }
+})

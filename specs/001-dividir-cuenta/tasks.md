@@ -78,7 +78,7 @@ description: "Tareas de implementación para 001-dividir-cuenta en React"
 ### Fase E — Pruebas de US2 antes de la implementación
 
 - [X] T020 [P] [US2] Ampliar `test/division.test.js` con el escenario original 4 tomado de `test/casosDePrueba.js` y una prueba LSP que intercambie estrategias mediante `aplicar(valor)` sin inspeccionar tipos concretos; exigir 4.00 y el mismo contrato de salida (FR-005, OCP/LSP; depende de T006 y T019).
-- [ ] T021 [P] [US2] Añadir la tercera prueba de pantalla en `test/pantalla.test.jsx`: calcular 3.33 en exacto con 10.00/3/0%, cambiar a hacia arriba y recalcular para ver solo 4.00, sin el resultado anterior (FR-002/FR-005/FR-010; depende de T019).
+- [X] T021 [P] [US2] Añadir la tercera prueba de pantalla en `test/pantalla.test.jsx`: calcular 3.33 en exacto con 10.00/3/0%, cambiar a hacia arriba y recalcular para ver solo 4.00, sin el resultado anterior (FR-002/FR-005/FR-010; depende de T019).
 
 ### Fases C y D — Data y Presentation de US2
 
@@ -86,7 +86,7 @@ description: "Tareas de implementación para 001-dividir-cuenta en React"
 - [X] T023 [P] [US2] Ampliar `src/presentation/useDivisor.js` para seleccionar entre estrategias inyectadas y sustituir el resultado anterior al recalcular, sin importar `src/data/` (FR-002/FR-010, DIP; depende de T016 y T022; T020–T021 se ejecutarán después del archivo manual).
 - [X] T024 [P] [US2] Ampliar `src/presentation/PantallaDivisor.jsx` con selector accesible de modo exacto/hacia arriba, manteniendo la misma pantalla y acción «Calcular» (FR-001/FR-002; depende de T017; T020–T021 se ejecutarán después del archivo manual).
 - [X] T025 [US2] Instanciar e inyectar ambas estrategias exclusivamente en `src/main.jsx` y comprobar que ninguna implementación concreta se instancia en `src/presentation/` (DIP/ISP; depende de T022–T024).
-- [ ] T026 [US2] Ejecutar el escenario 4, la prueba LSP en `test/division.test.js` y la prueba de cambio de modo en `test/pantalla.test.jsx`; cerrar US2 solo con 4.00 y sustitución real del pago visible (SC-002/SC-004; depende de T020–T025).
+- [X] T026 [US2] Ejecutar el escenario 4, la prueba LSP en `test/division.test.js` y la prueba de cambio de modo en `test/pantalla.test.jsx`; cerrar US2 solo con 4.00 y sustitución real del pago visible (SC-002/SC-004; depende de T020–T025).
 
 **Checkpoint**: Ambos modos funcionan y se sustituyen por el mismo contrato; US1 sigue pasando.
 
@@ -100,7 +100,7 @@ description: "Tareas de implementación para 001-dividir-cuenta en React"
 
 ### Fase E — Pruebas de US3 antes de la implementación
 
-- [ ] T027 [P] [US3] Ampliar `test/division.test.js` con escenarios originales 5–6 desde `test/casosDePrueba.js` y bordes: monto vacío/cero/negativo, personas negativas/decimales/no numéricas, propina negativa/no numérica y errores simultáneos; exigir mensaje literal único, prioridad monto → personas → propina y ausencia de resultado (FR-006–FR-008/FR-011, SC-003; depende de T006 y T026).
+- [X] T027 [P] [US3] Ampliar `test/division.test.js` con escenarios originales 5–6 desde `test/casosDePrueba.js` y bordes: monto vacío/cero/negativo, personas negativas/decimales/no numéricas, propina negativa/no numérica y errores simultáneos; exigir mensaje literal único, prioridad monto → personas → propina y ausencia de resultado (FR-006–FR-008/FR-011, SC-003; depende de T006 y T026).
 - [X] T028 [P] [US3] Añadir la segunda prueba de pantalla en `test/pantalla.test.jsx`: monto «abc», activar «Calcular», ver «Monto inválido» y ningún pago visible (FR-007; depende de T026).
 
 ### Fases B y D — Domain y Presentation de US3
@@ -108,7 +108,7 @@ description: "Tareas de implementación para 001-dividir-cuenta en React"
 - [X] T029 [US3] Completar `src/domain/validarEntrada.js`: monto vacío/cero/negativo/no numérico → «Monto inválido»; personas cero/negativas/decimales/no numéricas → «Debe haber al menos una persona»; propina negativa/no numérica → «Propina inválida»; retornar solo el primer error en orden monto → personas → propina, sin calcular (FR-006–FR-008/FR-011; depende de T010; T027 queda pendiente hasta la escritura manual).
 - [X] T030 [US3] Ajustar `src/presentation/useDivisor.js` para limpiar pago previo y conservar solo el mensaje de error recibido cuando la validación falla; no fabricar ni reformular mensajes (FR-006–FR-008/FR-010; depende de T023 y T029).
 - [X] T031 [US3] Ajustar `src/presentation/PantallaDivisor.jsx` para mostrar el único mensaje exacto y ocultar cualquier resultado ante entrada inválida (FR-006–FR-008/FR-011; depende de T024 y T030).
-- [ ] T032 [US3] Ejecutar `test/division.test.js` y `test/pantalla.test.jsx`; cerrar US3 solo si pasan los seis escenarios originales, la prueba LSP, los bordes de validación y exactamente tres pruebas de pantalla (SC-002/SC-003; depende de T027–T031).
+- [X] T032 [US3] Ejecutar `test/division.test.js` y `test/pantalla.test.jsx`; cerrar US3 solo si pasan los seis escenarios originales, la prueba LSP, los bordes de validación y exactamente tres pruebas de pantalla (SC-002/SC-003; depende de T027–T031).
 
 **Checkpoint**: Las tres historias cumplen sus pruebas independientes y los errores no dejan pagos visibles.
 
@@ -124,7 +124,7 @@ description: "Tareas de implementación para 001-dividir-cuenta en React"
 - [X] T036 Ejecutar en `test/division.test.js` y `test/pantalla.test.jsx` comprobaciones de 2.345 → 2.35, mensajes exactos, prioridad, dos decimales y sustitución del resultado; registrar fallos concretos sin modificar `specs/001-dividir-cuenta/spec.md` (FR-004/FR-006–FR-008/FR-010–FR-011, SC-003/SC-004; depende de T032).
 - [X] T037 Ejecutar toda la suite con el script de `package.json`, contar aprobadas/fallidas y documentar en `bitacora.md` la evidencia de seis escenarios, LSP y tres pruebas de pantalla; no afirmar éxito antes de ejecutarla (SC-002/SC-003/SC-004; depende de T032 y T036).
 - [X] T038 Ejecutar `npm.cmd run build` desde la raíz React, comprobar salida de Vite y recursos de precache, e informar inmediatamente al estudiante la primera compilación exitosa para que registre el tiempo sin detener el cronómetro (depende de T034 y de los módulos implementados T007–T011, T014–T018, T022–T025 y T029–T031; no depende de T006 ni de las pruebas de aceptación T037).
-- [ ] T039 Seguir `specs/001-dividir-cuenta/quickstart.md` para comprobar, después de recibir los recursos, recarga e ingreso/selección/cálculo sin conexión; registrar en `bitacora.md` la evidencia y cualquier limitación de primera entrega web, sin declarar FR-009 cumplido sin verificación (FR-009/SC-005; depende de T033–T034 y T038).
+- [X] T039 Seguir `specs/001-dividir-cuenta/quickstart.md` para comprobar, después de recibir los recursos, recarga e ingreso/selección/cálculo sin conexión; registrar en `bitacora.md` la evidencia y cualquier limitación de primera entrega web, sin declarar FR-009 cumplido sin verificación (FR-009/SC-005; depende de T033–T034 y T038).
 - [X] T040 Comparar byte por byte `specs/001-dividir-cuenta/spec.md` con `C:\Users\eduta\Documents\Universidad\Semestre 3\Programacion de Apps\Programacion_asistida_de_apps\actividadsem7\divisor_cuenta\specs\001-dividir-cuenta\spec.md` y verificar SHA-256 `0AAD31E32AB01BB5C4A138364004297A5390F2D2532FF5FFDE1914EA8C00F6C9`; registrar resultado en `bitacora.md` sin modificar Flutter.
 - [ ] T041 Medir desde pantalla lista hasta resultado visible para un cálculo válido y registrar tiempo real menor de 30 segundos o incumplimiento en `bitacora.md`, conforme a `specs/001-dividir-cuenta/quickstart.md` (SC-001; depende de T038).
 - [ ] T042 Completar en `bitacora.md` solo las métricas sustentadas por evidencia, incluidos minutos hasta seis casos en verde, iteraciones reales y líneas escritas manualmente por el estudiante; detener el cronómetro solo cuando los seis casos React pasen y dejar `no registrado` donde corresponda (depende de T035–T041).

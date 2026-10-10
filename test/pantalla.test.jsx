@@ -28,6 +28,17 @@ describe('pantalla del divisor', () => {
   it('muestra 27.50 para 100, 4 personas y 10% de propina', () => {
     completar({ monto: '100', personas: '4', propina: '10' })
     expect(within(screen.getByRole('status')).getByText('27.50')).toBeInTheDocument()
+
+    fireEvent.change(screen.getByLabelText(/Monto total/), { target: { value: '10' } })
+    fireEvent.change(screen.getByLabelText(/Número de personas/), { target: { value: '3' } })
+    fireEvent.change(screen.getByLabelText(/Porcentaje de propina/), { target: { value: '0' } })
+    fireEvent.click(screen.getByRole('button', { name: /Calcular/ }))
+    expect(within(screen.getByRole('status')).getByText('3.33')).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('radio', { name: /Hacia arriba/ }))
+    fireEvent.click(screen.getByRole('button', { name: /Calcular/ }))
+    expect(within(screen.getByRole('status')).getByText('4.00')).toBeInTheDocument()
+    expect(screen.queryByText('3.33')).not.toBeInTheDocument()
   })
 
   it('muestra el error exacto y ningún resultado con cero personas', () => {
