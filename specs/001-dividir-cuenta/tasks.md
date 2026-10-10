@@ -20,11 +20,11 @@ description: "Tareas de implementación para 001-dividir-cuenta en React"
 
 **Goal**: Disponer de estructura y herramientas de prueba, sin alterar la spec ni la Constitution.
 
-- [ ] T001 Instalar como dependencias de desarrollo Vitest compatible con Vite 8, `@testing-library/react`, `@testing-library/dom`, `@testing-library/jest-dom`, `jsdom` y `vite-plugin-pwa` en `package.json` y `package-lock.json`; comprobar que no se añade TypeScript ni gestor externo de estado.
-- [ ] T002 Configurar Vitest en `vite.config.js` con entorno Node para dominio y jsdom para `test/pantalla.test.jsx`; comprobar que la configuración conserva React con Vite.
-- [ ] T003 Crear `test/setup.js` para registrar los matchers de `@testing-library/jest-dom/vitest`; comprobar que Vitest carga el archivo de preparación.
-- [ ] T004 Preparar las rutas `src/domain/`, `src/data/`, `src/presentation/` y `test/` conforme a `specs/001-dividir-cuenta/plan.md`; comprobar que no se crea backend, base de datos ni carpeta TypeScript.
-- [ ] T005 Añadir el script de ejecución única de Vitest en `package.json`; comprobar que el comando futuro de pruebas apunta a Vitest y no ejecuta el servidor en modo watch.
+- [X] T001 Instalar como dependencias de desarrollo Vitest compatible con Vite 8, `@testing-library/react`, `@testing-library/dom`, `@testing-library/jest-dom`, `jsdom` y `vite-plugin-pwa` en `package.json` y `package-lock.json`; comprobar que no se añade TypeScript ni gestor externo de estado.
+- [X] T002 Configurar Vitest en `vite.config.js` con entorno Node para dominio y jsdom para `test/pantalla.test.jsx`; comprobar que la configuración conserva React con Vite.
+- [X] T003 Crear `test/setup.js` para registrar los matchers de `@testing-library/jest-dom/vitest`; comprobar que Vitest carga el archivo de preparación.
+- [X] T004 Preparar las rutas `src/domain/`, `src/data/`, `src/presentation/` y `test/` conforme a `specs/001-dividir-cuenta/plan.md`; comprobar que no se crea backend, base de datos ni carpeta TypeScript.
+- [X] T005 Añadir el script de ejecución única de Vitest en `package.json`; comprobar que el comando futuro de pruebas apunta a Vitest y no ejecuta el servidor en modo watch.
 
 **Checkpoint**: El entorno permite escribir pruebas y el árbol previsto existe. T006 requiere T001–T005.
 
@@ -34,12 +34,12 @@ description: "Tareas de implementación para 001-dividir-cuenta en React"
 
 **Goal**: Preparar valores y contratos JavaScript puros que usan las tres historias. La implementación del dominio puede avanzar mientras el estudiante escribe T006, pero ninguna prueba que importe sus casos puede avanzar sin él.
 
-- [ ] T006 **SOLO ESTUDIANTE, ESCRITURA MANUAL**: Escribir personalmente `test/casosDePrueba.js` con los seis escenarios de aceptación de `specs/001-dividir-cuenta/spec.md`, conservando entradas, modo y salida/mensaje exactos; dejar una exportación legible para `test/division.test.js`. Ningún agente ejecuta ni marca esta tarea.
-- [ ] T007 [P] Crear `src/domain/cuenta.js` como valor de cuenta validada con monto decimal positivo, personas enteras positivas y propina decimal no negativa, representando decimales exactamente con `BigInt`; comprobar que no importa React, JSX ni DOM.
-- [ ] T008 [P] Crear `src/domain/resultado.js` para representar `pagoCentavos` como `BigInt` no negativo y el modo aplicado, sin formato ni historial; comprobar que no contiene UI.
-- [ ] T009 [P] Definir en `src/domain/estrategiaRedondeo.js` el contrato mínimo `aplicar(valor)`: racional no negativo de entrada y centavos `BigInt` de salida, con comportamiento y errores iguales para cualquier estrategia; comprobar que no exige interfaz TypeScript ni inspección de tipo concreto.
-- [ ] T010 Crear en `src/domain/validarEntrada.js` la conversión de textos a `Cuenta` válida y la ruta de validación para los datos correctos; dejar la cobertura completa de errores y prioridad FR-006–FR-008/FR-011 para T029, sin cálculo ni formato. Depende de T007.
-- [ ] T011 Crear en `src/domain/calcularDivision.js` el cálculo sobre `Cuenta` válida: aplicar propina al monto antes de dividir por personas y entregar el racional individual a `aplicar(valor)` para construir `Resultado`; no validar ni formatear, ni consultar la implementación concreta (FR-003; depende de T007–T009).
+- [X] T006 **SOLO ESTUDIANTE, ESCRITURA MANUAL**: Escribir personalmente `test/casosDePrueba.js` con los seis escenarios de aceptación de `specs/001-dividir-cuenta/spec.md`, conservando entradas, modo y salida/mensaje exactos; dejar una exportación legible para `test/division.test.js`. Ningún agente ejecuta ni marca esta tarea.
+- [X] T007 [P] Crear `src/domain/cuenta.js` como valor de cuenta validada con monto decimal positivo, personas enteras positivas y propina decimal no negativa, representando decimales exactamente con `BigInt`; comprobar que no importa React, JSX ni DOM.
+- [X] T008 [P] Crear `src/domain/resultado.js` para representar `pagoCentavos` como `BigInt` no negativo y el modo aplicado, sin formato ni historial; comprobar que no contiene UI.
+- [X] T009 [P] Definir en `src/domain/estrategiaRedondeo.js` el contrato mínimo `aplicar(valor)`: racional no negativo de entrada y centavos `BigInt` de salida, con comportamiento y errores iguales para cualquier estrategia; comprobar que no exige interfaz TypeScript ni inspección de tipo concreto.
+- [X] T010 Crear en `src/domain/validarEntrada.js` la conversión de textos a `Cuenta` válida y la ruta de validación para los datos correctos; dejar la cobertura completa de errores y prioridad FR-006–FR-008/FR-011 para T029, sin cálculo ni formato. Depende de T007.
+- [X] T011 Crear en `src/domain/calcularDivision.js` el cálculo sobre `Cuenta` válida: aplicar propina al monto antes de dividir por personas y entregar el racional individual a `aplicar(valor)` para construir `Resultado`; no validar ni formatear, ni consultar la implementación concreta (FR-003; depende de T007–T009).
 
 **Checkpoint**: Los contratos y el cálculo puro están disponibles. Las historias requieren T007–T011; las pruebas basadas en los seis casos requieren además T006.
 
@@ -53,17 +53,17 @@ description: "Tareas de implementación para 001-dividir-cuenta en React"
 
 ### Fase E — Pruebas de US1 antes de la implementación
 
-- [ ] T012 [P] [US1] Crear `test/division.test.js` importando el archivo manual terminado `test/casosDePrueba.js` y ejecutar primero los escenarios originales 1–3; exigir 27.50, 30.00 y 3.33 sin cambiar los datos manuales (SC-002; depende de T006 y T011).
-- [ ] T013 [P] [US1] Añadir la primera prueba de pantalla en `test/pantalla.test.jsx`: ingresar 100.00, 4 personas, 10% y modo exacto, activar «Calcular» y ver 27.50 (FR-001/FR-003; depende de T002–T003).
+- [X] T012 [P] [US1] Crear `test/division.test.js` importando el archivo manual terminado `test/casosDePrueba.js` y ejecutar primero los escenarios originales 1–3; exigir 27.50, 30.00 y 3.33 sin cambiar los datos manuales (SC-002; depende de T006 y T011).
+- [X] T013 [P] [US1] Añadir la primera prueba de pantalla en `test/pantalla.test.jsx`: ingresar 100.00, 4 personas, 10% y modo exacto, activar «Calcular» y ver 27.50 (FR-001/FR-003; depende de T002–T003).
 
 ### Fases C y D — Data y Presentation de US1
 
-- [ ] T014 [P] [US1] Implementar `src/data/redondeoExacto.js` con `aplicar(valor)` que redondea racionales a centavos con mitad decimal hacia arriba, incluido 2.345 → 2.35, sin `Number.toFixed` como algoritmo (FR-004; depende de T009).
-- [ ] T015 [P] [US1] Implementar `src/presentation/formateadorMoneda.js` para convertir centavos `BigInt` a texto de exactamente dos decimales sin segundo redondeo ni símbolo monetario obligatorio (FR-004, SC-004; depende de T008).
-- [ ] T016 [US1] Implementar `src/presentation/useDivisor.js` con `useState` local y dependencias recibidas para validación, cálculo y estrategia exacta; un cálculo válido reemplaza el pago anterior y no guarda historial (FR-003/FR-010; depende de T010–T011 y T014).
-- [ ] T017 [US1] Implementar `src/presentation/PantallaDivisor.jsx` con entradas etiquetadas de monto, personas y propina, modo exacto y botón «Calcular», mostrando el pago formateado en una sola pantalla (FR-001/FR-003/FR-004; depende de T015–T016).
-- [ ] T018 [US1] Configurar `src/main.jsx` como único punto de composición que crea la estrategia exacta e inyecta validación, cálculo y formato en la presentación; comprobar `presentation → domain ← data` (DIP; depende de T014–T017).
-- [ ] T019 [US1] Ejecutar los escenarios 1–3 de `test/division.test.js` y la primera prueba de `test/pantalla.test.jsx`; cerrar US1 solo si ambos conjuntos pasan y el resultado tiene dos decimales (SC-002/SC-004; depende de T012–T018).
+- [X] T014 [P] [US1] Implementar `src/data/redondeoExacto.js` con `aplicar(valor)` que redondea racionales a centavos con mitad decimal hacia arriba, incluido 2.345 → 2.35, sin `Number.toFixed` como algoritmo (FR-004; depende de T009).
+- [X] T015 [P] [US1] Implementar `src/presentation/formateadorMoneda.js` para convertir centavos `BigInt` a texto de exactamente dos decimales sin segundo redondeo ni símbolo monetario obligatorio (FR-004, SC-004; depende de T008).
+- [X] T016 [US1] Implementar `src/presentation/useDivisor.js` con `useState` local y dependencias recibidas para validación, cálculo y estrategia exacta; un cálculo válido reemplaza el pago anterior y no guarda historial (FR-003/FR-010; depende de T010–T011 y T014).
+- [X] T017 [US1] Implementar `src/presentation/PantallaDivisor.jsx` con entradas etiquetadas de monto, personas y propina, modo exacto y botón «Calcular», mostrando el pago formateado en una sola pantalla (FR-001/FR-003/FR-004; depende de T015–T016).
+- [X] T018 [US1] Configurar `src/main.jsx` como único punto de composición que crea la estrategia exacta e inyecta validación, cálculo y formato en la presentación; comprobar `presentation → domain ← data` (DIP; depende de T014–T017).
+- [X] T019 [US1] Ejecutar los escenarios 1–3 de `test/division.test.js` y la primera prueba de `test/pantalla.test.jsx`; cerrar US1 solo si ambos conjuntos pasan y el resultado tiene dos decimales (SC-002/SC-004; depende de T012–T018).
 
 **Checkpoint**: MVP exacto verificable sin modo hacia arriba. T019 debe completarse antes de integrar US2.
 
@@ -77,15 +77,15 @@ description: "Tareas de implementación para 001-dividir-cuenta en React"
 
 ### Fase E — Pruebas de US2 antes de la implementación
 
-- [ ] T020 [P] [US2] Ampliar `test/division.test.js` con el escenario original 4 tomado de `test/casosDePrueba.js` y una prueba LSP que intercambie estrategias mediante `aplicar(valor)` sin inspeccionar tipos concretos; exigir 4.00 y el mismo contrato de salida (FR-005, OCP/LSP; depende de T006 y T019).
+- [X] T020 [P] [US2] Ampliar `test/division.test.js` con el escenario original 4 tomado de `test/casosDePrueba.js` y una prueba LSP que intercambie estrategias mediante `aplicar(valor)` sin inspeccionar tipos concretos; exigir 4.00 y el mismo contrato de salida (FR-005, OCP/LSP; depende de T006 y T019).
 - [ ] T021 [P] [US2] Añadir la tercera prueba de pantalla en `test/pantalla.test.jsx`: calcular 3.33 en exacto con 10.00/3/0%, cambiar a hacia arriba y recalcular para ver solo 4.00, sin el resultado anterior (FR-002/FR-005/FR-010; depende de T019).
 
 ### Fases C y D — Data y Presentation de US2
 
-- [ ] T022 [P] [US2] Implementar `src/data/redondeoHaciaArriba.js` con `aplicar(valor)`: techo de la parte individual racional ya calculada y salida en centavos `BigInt`, sin modificar `src/domain/calcularDivision.js` (FR-005, OCP; depende de T009; T020 queda pendiente hasta la escritura manual).
-- [ ] T023 [P] [US2] Ampliar `src/presentation/useDivisor.js` para seleccionar entre estrategias inyectadas y sustituir el resultado anterior al recalcular, sin importar `src/data/` (FR-002/FR-010, DIP; depende de T016 y T022; T020–T021 se ejecutarán después del archivo manual).
-- [ ] T024 [P] [US2] Ampliar `src/presentation/PantallaDivisor.jsx` con selector accesible de modo exacto/hacia arriba, manteniendo la misma pantalla y acción «Calcular» (FR-001/FR-002; depende de T017; T020–T021 se ejecutarán después del archivo manual).
-- [ ] T025 [US2] Instanciar e inyectar ambas estrategias exclusivamente en `src/main.jsx` y comprobar que ninguna implementación concreta se instancia en `src/presentation/` (DIP/ISP; depende de T022–T024).
+- [X] T022 [P] [US2] Implementar `src/data/redondeoHaciaArriba.js` con `aplicar(valor)`: techo de la parte individual racional ya calculada y salida en centavos `BigInt`, sin modificar `src/domain/calcularDivision.js` (FR-005, OCP; depende de T009; T020 queda pendiente hasta la escritura manual).
+- [X] T023 [P] [US2] Ampliar `src/presentation/useDivisor.js` para seleccionar entre estrategias inyectadas y sustituir el resultado anterior al recalcular, sin importar `src/data/` (FR-002/FR-010, DIP; depende de T016 y T022; T020–T021 se ejecutarán después del archivo manual).
+- [X] T024 [P] [US2] Ampliar `src/presentation/PantallaDivisor.jsx` con selector accesible de modo exacto/hacia arriba, manteniendo la misma pantalla y acción «Calcular» (FR-001/FR-002; depende de T017; T020–T021 se ejecutarán después del archivo manual).
+- [X] T025 [US2] Instanciar e inyectar ambas estrategias exclusivamente en `src/main.jsx` y comprobar que ninguna implementación concreta se instancia en `src/presentation/` (DIP/ISP; depende de T022–T024).
 - [ ] T026 [US2] Ejecutar el escenario 4, la prueba LSP en `test/division.test.js` y la prueba de cambio de modo en `test/pantalla.test.jsx`; cerrar US2 solo con 4.00 y sustitución real del pago visible (SC-002/SC-004; depende de T020–T025).
 
 **Checkpoint**: Ambos modos funcionan y se sustituyen por el mismo contrato; US1 sigue pasando.
@@ -101,13 +101,13 @@ description: "Tareas de implementación para 001-dividir-cuenta en React"
 ### Fase E — Pruebas de US3 antes de la implementación
 
 - [ ] T027 [P] [US3] Ampliar `test/division.test.js` con escenarios originales 5–6 desde `test/casosDePrueba.js` y bordes: monto vacío/cero/negativo, personas negativas/decimales/no numéricas, propina negativa/no numérica y errores simultáneos; exigir mensaje literal único, prioridad monto → personas → propina y ausencia de resultado (FR-006–FR-008/FR-011, SC-003; depende de T006 y T026).
-- [ ] T028 [P] [US3] Añadir la segunda prueba de pantalla en `test/pantalla.test.jsx`: monto «abc», activar «Calcular», ver «Monto inválido» y ningún pago visible (FR-007; depende de T026).
+- [X] T028 [P] [US3] Añadir la segunda prueba de pantalla en `test/pantalla.test.jsx`: monto «abc», activar «Calcular», ver «Monto inválido» y ningún pago visible (FR-007; depende de T026).
 
 ### Fases B y D — Domain y Presentation de US3
 
-- [ ] T029 [US3] Completar `src/domain/validarEntrada.js`: monto vacío/cero/negativo/no numérico → «Monto inválido»; personas cero/negativas/decimales/no numéricas → «Debe haber al menos una persona»; propina negativa/no numérica → «Propina inválida»; retornar solo el primer error en orden monto → personas → propina, sin calcular (FR-006–FR-008/FR-011; depende de T010; T027 queda pendiente hasta la escritura manual).
-- [ ] T030 [US3] Ajustar `src/presentation/useDivisor.js` para limpiar pago previo y conservar solo el mensaje de error recibido cuando la validación falla; no fabricar ni reformular mensajes (FR-006–FR-008/FR-010; depende de T023 y T029).
-- [ ] T031 [US3] Ajustar `src/presentation/PantallaDivisor.jsx` para mostrar el único mensaje exacto y ocultar cualquier resultado ante entrada inválida (FR-006–FR-008/FR-011; depende de T024 y T030).
+- [X] T029 [US3] Completar `src/domain/validarEntrada.js`: monto vacío/cero/negativo/no numérico → «Monto inválido»; personas cero/negativas/decimales/no numéricas → «Debe haber al menos una persona»; propina negativa/no numérica → «Propina inválida»; retornar solo el primer error en orden monto → personas → propina, sin calcular (FR-006–FR-008/FR-011; depende de T010; T027 queda pendiente hasta la escritura manual).
+- [X] T030 [US3] Ajustar `src/presentation/useDivisor.js` para limpiar pago previo y conservar solo el mensaje de error recibido cuando la validación falla; no fabricar ni reformular mensajes (FR-006–FR-008/FR-010; depende de T023 y T029).
+- [X] T031 [US3] Ajustar `src/presentation/PantallaDivisor.jsx` para mostrar el único mensaje exacto y ocultar cualquier resultado ante entrada inválida (FR-006–FR-008/FR-011; depende de T024 y T030).
 - [ ] T032 [US3] Ejecutar `test/division.test.js` y `test/pantalla.test.jsx`; cerrar US3 solo si pasan los seis escenarios originales, la prueba LSP, los bordes de validación y exactamente tres pruebas de pantalla (SC-002/SC-003; depende de T027–T031).
 
 **Checkpoint**: Las tres historias cumplen sus pruebas independientes y los errores no dejan pagos visibles.
@@ -118,14 +118,14 @@ description: "Tareas de implementación para 001-dividir-cuenta en React"
 
 **Goal**: Confirmar cumplimiento del conjunto sin cambiar los requisitos. Los resultados se registran con evidencia real, no con estimaciones.
 
-- [ ] T033 Preparar `bitacora.md` dentro del repositorio React para registrar evidencias y métricas de esta implementación, manteniendo intacta la bitácora Flutter; no inventar tiempos, iteraciones ni líneas manuales.
-- [ ] T034 Configurar en `vite.config.js` el precache de HTML, JS y CSS con `vite-plugin-pwa` y registrar el service worker desde `src/main.jsx`; comprobar que ingreso, selección y cálculo no realizan solicitudes a API/CDN/backend ni usan base de datos (FR-009/SC-005; depende de T025 y T031).
-- [ ] T035 Auditar `src/domain/`, `src/data/`, `src/presentation/` y `src/main.jsx` para confirmar SRP, OCP, LSP, ISP, DIP y `presentation → domain ← data`: dominio JavaScript puro, contrato `aplicar(valor)`, dependencias inyectadas y composición solo en `main.jsx`; registrar resultado en `bitacora.md` (depende de T032–T033).
-- [ ] T036 Ejecutar en `test/division.test.js` y `test/pantalla.test.jsx` comprobaciones de 2.345 → 2.35, mensajes exactos, prioridad, dos decimales y sustitución del resultado; registrar fallos concretos sin modificar `specs/001-dividir-cuenta/spec.md` (FR-004/FR-006–FR-008/FR-010–FR-011, SC-003/SC-004; depende de T032).
-- [ ] T037 Ejecutar toda la suite con el script de `package.json`, contar aprobadas/fallidas y documentar en `bitacora.md` la evidencia de seis escenarios, LSP y tres pruebas de pantalla; no afirmar éxito antes de ejecutarla (SC-002/SC-003/SC-004; depende de T032 y T036).
-- [ ] T038 Ejecutar `npm.cmd run build` desde la raíz React, comprobar salida de Vite y recursos de precache, e informar inmediatamente al estudiante la primera compilación exitosa para que registre el tiempo sin detener el cronómetro (depende de T034 y de los módulos implementados T007–T011, T014–T018, T022–T025 y T029–T031; no depende de T006 ni de las pruebas de aceptación T037).
+- [X] T033 Preparar `bitacora.md` dentro del repositorio React para registrar evidencias y métricas de esta implementación, manteniendo intacta la bitácora Flutter; no inventar tiempos, iteraciones ni líneas manuales.
+- [X] T034 Configurar en `vite.config.js` el precache de HTML, JS y CSS con `vite-plugin-pwa` y registrar el service worker desde `src/main.jsx`; comprobar que ingreso, selección y cálculo no realizan solicitudes a API/CDN/backend ni usan base de datos (FR-009/SC-005; depende de T025 y T031).
+- [X] T035 Auditar `src/domain/`, `src/data/`, `src/presentation/` y `src/main.jsx` para confirmar SRP, OCP, LSP, ISP, DIP y `presentation → domain ← data`: dominio JavaScript puro, contrato `aplicar(valor)`, dependencias inyectadas y composición solo en `main.jsx`; registrar resultado en `bitacora.md` (depende de T032–T033).
+- [X] T036 Ejecutar en `test/division.test.js` y `test/pantalla.test.jsx` comprobaciones de 2.345 → 2.35, mensajes exactos, prioridad, dos decimales y sustitución del resultado; registrar fallos concretos sin modificar `specs/001-dividir-cuenta/spec.md` (FR-004/FR-006–FR-008/FR-010–FR-011, SC-003/SC-004; depende de T032).
+- [X] T037 Ejecutar toda la suite con el script de `package.json`, contar aprobadas/fallidas y documentar en `bitacora.md` la evidencia de seis escenarios, LSP y tres pruebas de pantalla; no afirmar éxito antes de ejecutarla (SC-002/SC-003/SC-004; depende de T032 y T036).
+- [X] T038 Ejecutar `npm.cmd run build` desde la raíz React, comprobar salida de Vite y recursos de precache, e informar inmediatamente al estudiante la primera compilación exitosa para que registre el tiempo sin detener el cronómetro (depende de T034 y de los módulos implementados T007–T011, T014–T018, T022–T025 y T029–T031; no depende de T006 ni de las pruebas de aceptación T037).
 - [ ] T039 Seguir `specs/001-dividir-cuenta/quickstart.md` para comprobar, después de recibir los recursos, recarga e ingreso/selección/cálculo sin conexión; registrar en `bitacora.md` la evidencia y cualquier limitación de primera entrega web, sin declarar FR-009 cumplido sin verificación (FR-009/SC-005; depende de T033–T034 y T038).
-- [ ] T040 Comparar byte por byte `specs/001-dividir-cuenta/spec.md` con `C:\Users\eduta\Documents\Universidad\Semestre 3\Programacion de Apps\Programacion_asistida_de_apps\actividadsem7\divisor_cuenta\specs\001-dividir-cuenta\spec.md` y verificar SHA-256 `0AAD31E32AB01BB5C4A138364004297A5390F2D2532FF5FFDE1914EA8C00F6C9`; registrar resultado en `bitacora.md` sin modificar Flutter.
+- [X] T040 Comparar byte por byte `specs/001-dividir-cuenta/spec.md` con `C:\Users\eduta\Documents\Universidad\Semestre 3\Programacion de Apps\Programacion_asistida_de_apps\actividadsem7\divisor_cuenta\specs\001-dividir-cuenta\spec.md` y verificar SHA-256 `0AAD31E32AB01BB5C4A138364004297A5390F2D2532FF5FFDE1914EA8C00F6C9`; registrar resultado en `bitacora.md` sin modificar Flutter.
 - [ ] T041 Medir desde pantalla lista hasta resultado visible para un cálculo válido y registrar tiempo real menor de 30 segundos o incumplimiento en `bitacora.md`, conforme a `specs/001-dividir-cuenta/quickstart.md` (SC-001; depende de T038).
 - [ ] T042 Completar en `bitacora.md` solo las métricas sustentadas por evidencia, incluidos minutos hasta seis casos en verde, iteraciones reales y líneas escritas manualmente por el estudiante; detener el cronómetro solo cuando los seis casos React pasen y dejar `no registrado` donde corresponda (depende de T035–T041).
 
@@ -231,3 +231,10 @@ Para la implementación actual: T029 → T030 → T031. Después de T006: T027/T
 **Incremental delivery**: US2 agrega una nueva estrategia sin modificar el cálculo del dominio; US3 completa validaciones y presentación de errores. Cada historia conserva las pruebas de las anteriores. El cronómetro del deber continúa durante todas estas fases y solo se detendrá con los seis casos de aceptación React en verde.
 
 **Alcance**: Ninguna tarea agrega autenticación, historial, persistencia, backend, base de datos, funcionalidad de red o requisitos fuera de la spec. La bitácora futura de React documentará evidencia sin tocar el proyecto Flutter.
+
+## Phase 7: Convergence
+
+- [ ] T043 Verificar en un navegador real la recarga, el ingreso, la selección y el cálculo sin conexión tras recibir los recursos; documentar el límite de primera apertura y, si se exige abrir por primera vez sin red, definir una entrega local compatible sin cambiar la spec, per FR-009/SC-005 (partial).
+- [X] T044 Añadir una comprobación ejecutable del empate decimal 2.345 → 2.35 en modo exacto y del formato de dos decimales, per FR-004/SC-004 (partial).
+- [X] T045 Completar comprobaciones ejecutables de propina inválida, prioridad monto → personas → propina y sustitución del resultado anterior, sin alterar los seis casos originales, per FR-006–FR-011/SC-003 (partial).
+- [X] T046 Crear la bitácora React prevista por el plan y registrar solo evidencia verificable, remitiendo a la bitácora comparativa Flutter para métricas personales pendientes, per plan: Project Structure/T033 (missing).
